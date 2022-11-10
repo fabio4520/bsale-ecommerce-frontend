@@ -1,6 +1,8 @@
 function render() {
   return `
-    <h1>Holaa</h1>
+    <h1 class="text-3xl font-bold">
+      Hello world!
+    </h1>
   `;
 }
 
