@@ -1,6 +1,7 @@
 import { NavBar } from "../components/navbar.js";
 import { ProductComponent } from "../components/product.js";
 import DOMHandler from "../dom-handler.js";
+import { deleteProduct } from "../services/products-service.js";
 import STORE from "../store.js";
 import { listenCategoriesBtn, listenHomeBtn, listenLogo } from "../utils/listeners.js";
 import { CreateProductPage } from "./create-product.js";
@@ -48,17 +49,22 @@ function listenEditProduct() {
       const prod_id_data = event.target.closest("[data-id]");
       const prod_id = prod_id_data.dataset.id;
       await STORE.setCurrentProduct(prod_id)
-      console.log(STORE.currentProduct);
       DOMHandler.load(EditProductPage);
     })
   })
 }
 
 function listenDeleteProduct() {
-  const add_prod_btn = document.querySelector("#add-prod-btn");
-  add_prod_btn.addEventListener("click", (ev) => {
-    ev.preventDefault();
-    DOMHandler.load(CreateProductPage)
+  const delete_prod_btn_arr = document.querySelectorAll("#delete-product-btn");
+  delete_prod_btn_arr.forEach((delete_btn) => {
+    delete_btn.addEventListener("click", async (ev) => {
+      ev.preventDefault();
+      const prod_id_data = event.target.closest("[data-id]");
+      const prod_id = prod_id_data.dataset.id;
+      await STORE.deleteProduct(prod_id)
+      await deleteProduct(prod_id)
+      location.reload();
+    })
   })
 }
 

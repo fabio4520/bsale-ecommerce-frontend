@@ -20,3 +20,7 @@ export async function editProduct(
   });
   return product;
 }
+
+export async function deleteProduct(productId) {
+  return apiFetch("products/" + productId, { method: "DELETE" });
+}

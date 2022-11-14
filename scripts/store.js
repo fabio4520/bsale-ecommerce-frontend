@@ -26,7 +26,10 @@ function cleanCurrentProduct() {
 function updateProduct( productId, product) {
   const index = this.products.findIndex((element) => element.id == productId);
   this.products[index] = product
-  console.log(index)
+}
+function deleteProduct( productId) {
+  const index = this.products.findIndex((element) => element.id == productId);
+  this.products.slice(index, 1)
 }
 
 let STORE = {
@@ -38,7 +41,8 @@ let STORE = {
   setProductsByCategoryId,
   setCurrentProduct,
   cleanCurrentProduct,
-  updateProduct
+  updateProduct,
+  deleteProduct
 }
 
 export default STORE;

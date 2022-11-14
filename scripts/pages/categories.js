@@ -3,7 +3,7 @@ import { listenCategoriesBtn, listenHomeBtn, listenLogo } from "../utils/listene
 import STORE from "../store.js";
 import { CategoryComponent } from "../components/category.js";
 import DOMHandler from "../dom-handler.js";
-import { ProductsPage } from "./products.js";
+import { HomePage } from "./homepage.js";
 
 function render() {
   return `
@@ -25,11 +25,10 @@ function listenShowCategory() {
       const card_selected = event.target.closest("[data-id]");
       const id = card_selected.dataset.id
       await STORE.setProductsByCategoryId(id);
-      DOMHandler.load(ProductsPage)
+      DOMHandler.load(HomePage)
     })
   })
 }
-
 
 export const CategoriesPage = {
   toString() {
