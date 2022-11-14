@@ -1,5 +1,6 @@
 import { NavBar } from "../components/navbar.js";
 import DOMHandler from "../dom-handler.js"
+import { ProductsPage } from "./products.js";
 
 function render() {
   return `
@@ -20,6 +21,7 @@ function listenProductsBtn() {
   const productsAnchor = document.querySelector("#products-btn")
   productsAnchor.addEventListener("click", (e)=> {
     e.preventDefault();
+    DOMHandler.load(ProductsPage)
   })
 }
 function listenCategoriesBtn() {
