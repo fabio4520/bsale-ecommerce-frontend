@@ -10,6 +10,7 @@ export function listenHomeBtn() {
     e.preventDefault();
     await STORE.fetchProducts();
     await STORE.fetchCategories();
+    await STORE.cleanCurrentProduct();
     DOMHandler.load(HomePage);
   })
 }
@@ -19,6 +20,7 @@ export function listenCategoriesBtn() {
     e.preventDefault();
     await STORE.fetchProducts();
     await STORE.fetchCategories();
+    await STORE.cleanCurrentProduct();
     DOMHandler.load(CategoriesPage)
   })
 }
@@ -28,6 +30,7 @@ export function listenLogo() {
     e.preventDefault();
     await STORE.fetchProducts();
     await STORE.fetchCategories();
+    await STORE.cleanCurrentProduct();
     DOMHandler.load(HomePage);
   })
 }

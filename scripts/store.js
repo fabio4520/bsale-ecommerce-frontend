@@ -15,12 +15,30 @@ function setProductsByCategoryId(categoryId) {
   this.products = this.products.filter((prod)=> prod.category == categoryId)
 }
 
+function setCurrentProduct(productId) {
+  this.currentProduct = this.products.find((prod) => prod.id == productId)
+}
+
+function cleanCurrentProduct() {
+  this.currentProduct = null
+}
+
+function updateProduct( productId, product) {
+  const index = this.products.findIndex((element) => element.id == productId);
+  this.products[index] = product
+  console.log(index)
+}
+
 let STORE = {
   products: [],
   categories: [],
+  currentProduct: null,
   fetchProducts,
   fetchCategories,
-  setProductsByCategoryId
+  setProductsByCategoryId,
+  setCurrentProduct,
+  cleanCurrentProduct,
+  updateProduct
 }
 
 export default STORE;

@@ -9,3 +9,14 @@ export async function createProduct(
 ) {
   return apiFetch("products", { body: newProduct })
 }
+
+export async function editProduct(
+  id,
+  payload = { name, category, price, discount, url_image }
+) {
+  const product= await apiFetch("products/" + id, {
+    method: "PATCH",
+    body: payload,
+  });
+  return product;
+}

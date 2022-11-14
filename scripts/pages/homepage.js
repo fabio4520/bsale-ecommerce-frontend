@@ -4,6 +4,7 @@ import DOMHandler from "../dom-handler.js";
 import STORE from "../store.js";
 import { listenCategoriesBtn, listenHomeBtn, listenLogo } from "../utils/listeners.js";
 import { CreateProductPage } from "./create-product.js";
+import { EditProductPage } from "./edit-product.js";
 
 function render() {
   return `
@@ -39,6 +40,28 @@ function listenAddProduct() {
   })
 }
 
+function listenEditProduct() {
+  const edit_prod_btn_arr = document.querySelectorAll("#edit-product-btn");
+  edit_prod_btn_arr.forEach((edit_btn) => {
+    edit_btn.addEventListener("click", async (ev) => {
+      ev.preventDefault();
+      const prod_id_data = event.target.closest("[data-id]");
+      const prod_id = prod_id_data.dataset.id;
+      await STORE.setCurrentProduct(prod_id)
+      console.log(STORE.currentProduct);
+      DOMHandler.load(EditProductPage);
+    })
+  })
+}
+
+function listenDeleteProduct() {
+  const add_prod_btn = document.querySelector("#add-prod-btn");
+  add_prod_btn.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    DOMHandler.load(CreateProductPage)
+  })
+}
+
 export const HomePage = {
   toString() {
     return render();
@@ -48,6 +71,8 @@ export const HomePage = {
     listenCategoriesBtn(),
     listenLogo(),
       listenShowProduct(),
-      listenAddProduct()
+      listenAddProduct(),
+      listenEditProduct(),
+      listenDeleteProduct()
   }
 }
