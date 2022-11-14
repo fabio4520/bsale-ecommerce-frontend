@@ -11,11 +11,16 @@ async function fetchCategories() {
   this.categories = [...all_categories]
 }
 
+function setProductsByCategoryId(categoryId) {
+  this.products = this.products.filter((prod)=> prod.category == categoryId)
+}
+
 let STORE = {
   products: [],
   categories: [],
   fetchProducts,
-  fetchCategories
+  fetchCategories,
+  setProductsByCategoryId
 }
 
 export default STORE;
