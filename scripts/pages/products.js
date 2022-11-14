@@ -8,6 +8,7 @@ function render() {
     ${NavBar()}
     <div class='flex flex-col gap-y-5'>
       <button class='bg-[#326273] w-44 p-2 rounded-md flex items-center justify-center gap-x-5 hover:bg-[#326273]/90'>
+        <i class="fa-solid fa-circle-plus fill-white text-lg"></i>
         <span class='uppercase text-white tracking-wide'>Add product</span>
       </button>
       <div class='flex flex-wrap gap-10'>
