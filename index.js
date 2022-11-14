@@ -6,6 +6,7 @@ import STORE from "./scripts/store.js";
 async function init() {
   // DOMHandler.load(HomePage);
   await STORE.fetchProducts();
+  await STORE.fetchCategories();
   DOMHandler.load(ProductsPage);
 }
 
