@@ -1,42 +1,15 @@
 import { NavBar } from "../components/navbar.js";
-import DOMHandler from "../dom-handler.js"
-import { ProductsPage } from "./products.js";
+import { listenCategoriesBtn, listenHomeBtn, listenLogo, listenProductsBtn } from "../utils/listeners.js";
 
 function render() {
   return `
-  <div class='flex justify-center items-center'>
+  <div class='pr-10 pl-10 pt-4 pb-4 bg-[#eeeeee] h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0'>
     ${NavBar()}
   </div>
   `;
 }
 
-function listenHomeBtn() {
-  const homeAnchor = document.querySelector("#home-btn")
-  homeAnchor.addEventListener("click", (event) => {
-    event.preventDefault();
-    DOMHandler.reload();
-  })
-}
-function listenProductsBtn() {
-  const productsAnchor = document.querySelector("#products-btn")
-  productsAnchor.addEventListener("click", (e)=> {
-    e.preventDefault();
-    DOMHandler.load(ProductsPage)
-  })
-}
-function listenCategoriesBtn() {
-  const categoriesAnchor = document.querySelector("#categories-btn")
-  categoriesAnchor.addEventListener("click", (e) => {
-    e.preventDefault();
-  })
-}
-function listenLogo() {
-  const logoBtn = document.querySelector("#logo-btn");
-  logoBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    DOMHandler.load(HomePage);
-  })
-}
+
 export const HomePage = {
   toString() {
     return render();
@@ -44,7 +17,7 @@ export const HomePage = {
   addListeners() {
     listenHomeBtn(),
     listenProductsBtn(),
-      listenCategoriesBtn(),
-      listenLogo()
+    listenCategoriesBtn(),
+    listenLogo()
   }
 }

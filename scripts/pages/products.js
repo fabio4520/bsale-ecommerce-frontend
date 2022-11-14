@@ -1,5 +1,6 @@
 import { NavBar } from "../components/navbar.js";
 import { ProductComponent } from "../components/product.js";
+import { listenCategoriesBtn, listenHomeBtn, listenLogo, listenProductsBtn } from "../utils/listeners.js";
 import STORE from "../store.js";
 
 function render() {
@@ -20,10 +21,23 @@ function render() {
   `
 }
 
+function listenShowProduct() {
+  const img_product = document.querySelector("#show-product");
+  img_product.addEventListener("click", (ev) => {
+    ev.preventDefault();
+
+  })
+}
+
 export const ProductsPage = {
   toString() {
     return render();
   },
   addListeners() {
+    listenShowProduct,
+    listenHomeBtn(),
+    listenProductsBtn(),
+    listenCategoriesBtn(),
+    listenLogo()
   }
 }

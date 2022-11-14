@@ -4,10 +4,10 @@ import { ProductsPage } from "./scripts/pages/products.js";
 import STORE from "./scripts/store.js";
 
 async function init() {
-  // DOMHandler.load(HomePage);
   await STORE.fetchProducts();
   await STORE.fetchCategories();
-  DOMHandler.load(ProductsPage);
+  DOMHandler.load(HomePage);
+  // DOMHandler.load(ProductsPage);
 }
 
 init()
