@@ -1,6 +1,6 @@
 import { NavBar } from "../components/navbar.js";
 import { ProductComponent } from "../components/product.js";
-import { listenCategoriesBtn, listenHomeBtn, listenLogo, listenProductsBtn } from "../utils/listeners.js";
+import { listenCategoriesBtn, listenHomeBtn, listenLogo } from "../utils/listeners.js";
 import STORE from "../store.js";
 
 function render() {
@@ -36,7 +36,6 @@ export const ProductsPage = {
   addListeners() {
     listenShowProduct,
     listenHomeBtn(),
-    listenProductsBtn(),
     listenCategoriesBtn(),
     listenLogo()
   }

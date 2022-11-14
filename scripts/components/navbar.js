@@ -27,9 +27,6 @@ export function NavBar() {
         <a href="home" id='home-btn'>
           <li class='text-lg text-gray-800'>Home</li>
         </a>
-        <a href="Products" id='products-btn'>
-          <li class='text-lg text-gray-800'>Products</li>
-        </a>
         <a href="Categories" id='categories-btn'>
           <li class='text-lg text-gray-800'>Categories</li>
         </a>

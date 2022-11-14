@@ -1,7 +1,6 @@
 import DOMHandler from "../dom-handler.js";
 import { CategoriesPage } from "../pages/categories.js";
 import { HomePage } from "../pages/homepage.js";
-import { ProductsPage } from "../pages/products.js";
 import STORE from "../store.js";
 
 
@@ -12,15 +11,6 @@ export function listenHomeBtn() {
     await STORE.fetchProducts();
     await STORE.fetchCategories();
     DOMHandler.load(HomePage);
-  })
-}
-export function listenProductsBtn() {
-  const productsAnchor = document.querySelector("#products-btn")
-  productsAnchor.addEventListener("click", async (e)=> {
-    e.preventDefault();
-    await STORE.fetchProducts();
-    await STORE.fetchCategories();
-    DOMHandler.load(ProductsPage)
   })
 }
 export function listenCategoriesBtn() {

@@ -1,5 +1,5 @@
 import { NavBar } from "../components/navbar.js";
-import { listenCategoriesBtn, listenHomeBtn, listenLogo, listenProductsBtn } from "../utils/listeners.js";
+import { listenCategoriesBtn, listenHomeBtn, listenLogo } from "../utils/listeners.js";
 import STORE from "../store.js";
 import { CategoryComponent } from "../components/category.js";
 import DOMHandler from "../dom-handler.js";
@@ -37,7 +37,6 @@ export const CategoriesPage = {
   },
   addListeners() {
     listenHomeBtn(),
-    listenProductsBtn(),
     listenCategoriesBtn(),
       listenLogo(),
       listenShowCategory()

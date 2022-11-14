@@ -13,7 +13,7 @@ export function ProductComponent(product) {
         <i class="fa-sharp fa-solid fa-trash fill-red-500 text-lg semibold cursor-pointer hover:bg-red-500 hover:fill-white hover:duration-100 rounded-sm"></i>
       </button>
     </div>
-    <a href="" id="show-product-${product.id}">
+    <a href="" id="show-product" class="product">
       <figure class='flex items-center justify-center'>
         <img src=${product.url_image} alt=${product.name } class='w-56'/>
       </figure>
